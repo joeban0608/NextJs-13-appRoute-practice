@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ReduxProvider from "./store/ReduxProvider";
 import CustomThemeProvider from "./theme/CustomThemeProvider";
+import StyledComponentsRegistry from "../../registry";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ReduxProvider>
-          <CustomThemeProvider>{children}</CustomThemeProvider>
+          <StyledComponentsRegistry>
+            <CustomThemeProvider>{children}</CustomThemeProvider>
+          </StyledComponentsRegistry>
         </ReduxProvider>
       </body>
     </html>
