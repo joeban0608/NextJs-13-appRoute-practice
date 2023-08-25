@@ -1,4 +1,4 @@
-# Readme 規則 2023-0418
+# Readme 規則 2023-0825
 
 版本控制：
 - npm version: v.9.5.0
