@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev-main": "next dev --turbo",
+    "dev-main": "cp .env.development .env.local && next dev --turbo",
+    "pro-main": "cp .env.production .env.local && next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
