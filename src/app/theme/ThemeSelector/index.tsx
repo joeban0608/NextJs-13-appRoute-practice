@@ -1,11 +1,6 @@
 "use client";
-
-import { useAppDispatch } from "@/app/hook/hooks";
-import {
-  ThemeColor,
-  setSelectTheme,
-} from "@/app/store/features/persistStoresSlice";
 import { styled } from "styled-components";
+import { useTheme } from "next-themes";
 
 const ThemeSelectorStyle = styled.div`
   display: flex;
@@ -13,11 +8,10 @@ const ThemeSelectorStyle = styled.div`
   gap: 12px;
 
   .button {
-    color: ${({ theme }) => theme.buttons};
     padding: 6px 18px;
     border-radius: 24px;
-    background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.buttons};
+    background: var(--primary);
+    color: var(--buttons);
     font-size: 14px;
     font-weight: 700;
     line-height: normal;
@@ -27,17 +21,14 @@ const ThemeSelectorStyle = styled.div`
 `;
 
 const ThemeSelector = () => {
-  const dispatch = useAppDispatch();
-  const handleSelectTheme = (theme: ThemeColor) => {
-    dispatch(setSelectTheme(theme));
-  };
+  const { theme, setTheme } = useTheme();
 
   return (
     <ThemeSelectorStyle className="button-block">
       <button
         className="button"
         onClick={() => {
-          handleSelectTheme("dark");
+          setTheme("dark");
         }}
       >
         Dark
@@ -45,7 +36,7 @@ const ThemeSelector = () => {
       <button
         className="button"
         onClick={() => {
-          handleSelectTheme("light");
+          setTheme("light");
         }}
       >
         light

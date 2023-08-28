@@ -30,6 +30,7 @@ npm run pro-main
 - styleComponent
 - redux/toolkit
 - redux-persist
+- next-themes
 ---
 
 目前使用 css 框架

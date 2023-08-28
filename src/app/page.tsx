@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Counter from "./component/Counter";
-import ThemeSelector from "./component/ThemeSelector";
 import GlobalStyles from "./theme/GlobalStyles";
+import ThemeSelector from "./theme/ThemeSelector";
 
 export default function Home() {
   return (

@@ -1,23 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export type ThemeColor = "dark" | "light" | "";
+// export type ThemeColor = "dark" | "light" | "";
 export interface PersisStatusState {
-  selectTheme: ThemeColor;
+  // selectTheme: ThemeColor;
 }
 
 const initialState: PersisStatusState = {
-  selectTheme: "dark",
+  // selectTheme: "dark",
 };
 
 export const persistStoresSlice = createSlice({
   name: "persistStores",
   initialState,
   reducers: {
-    setSelectTheme: (state, action: PayloadAction<ThemeColor>) => {
-      state.selectTheme = action.payload;
-    },
-
+    // setSelectTheme: (state, action: PayloadAction<ThemeColor>) => {
+    //   state.selectTheme = action.payload;
+    // },
     // decrement: (state) => {
     //   state.counter = 1;
     // },
@@ -28,6 +27,8 @@ export const persistStoresSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setSelectTheme } = persistStoresSlice.actions;
+export const {
+  // setSelectTheme
+} = persistStoresSlice.actions;
 
 export default persistStoresSlice.reducer;

@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
-import { ThemeProvider } from "styled-components";
-import { themeConfig } from "./theme";
-import { useAppSelector } from "../hook/hooks";
+import { ThemeProvider } from "next-themes";
 
 const CustomThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const { selectTheme } = useAppSelector((state) => state.persistStores);
-  return (
-    <ThemeProvider theme={themeConfig(selectTheme)}>{children}</ThemeProvider>
-  );
+  return <ThemeProvider enableSystem={false}>{children}</ThemeProvider>;
 };
 
 export default CustomThemeProvider;
