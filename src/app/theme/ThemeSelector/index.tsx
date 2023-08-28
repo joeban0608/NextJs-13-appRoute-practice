@@ -22,7 +22,7 @@ const ThemeSelectorStyle = styled.div`
 
 const ThemeSelector = () => {
   const { theme, setTheme } = useTheme();
-
+  console.log('theme', theme)
   return (
     <ThemeSelectorStyle className="button-block">
       <button
