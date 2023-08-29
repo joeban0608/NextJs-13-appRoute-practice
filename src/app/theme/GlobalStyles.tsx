@@ -27,6 +27,7 @@ const GlobalStyles = styled.createGlobalStyle`
     --gameBackground: #000;
     --heart: #ff3142;
     --start: #ff9e4f;
+    --line: #06c052;
     background: var(--background_1);
     color: var(--text_1);
   }
@@ -52,8 +53,21 @@ const GlobalStyles = styled.createGlobalStyle`
     --gameBackground: #000;
     --heart: #ff3142;
     --start: #ff9e4f;
+    --line: #06c052;
     background: var(--background_1);
     color: var(--text_1);
+  }
+
+  .button {
+    padding: 6px 18px;
+    border-radius: 24px;
+    background: var(--primary);
+    color: var(--buttons);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.28px;
+    width: 265px;
   }
 `;
 
