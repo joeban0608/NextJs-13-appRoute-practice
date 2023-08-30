@@ -46,7 +46,7 @@ const LinePassCode = () => {
       )
         return;
       dispatch(setUserInfo(userInfoRes.data));
-      window.location.href = handleRedirectProfile();
+      // window.location.href = handleRedirectProfile();
     } catch (err) {
       dispatch(setUserInfo(null));
       window.location.href = handleRedirectHomeUrl();

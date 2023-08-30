@@ -10,6 +10,12 @@ type GetLineAuthRes =
 type HandleLineLoginProps = {
   handleRedirectLinePassUrl: () => string;
 };
+
+/* 
+  帶 url: window.location.origin}/${locale}/linepasscode, 
+  成功：redirect 至 LineAuthUrl (後端設置的 Line Platform)
+  失敗：...
+*/
 export const handleLineLogin = async ({
   handleRedirectLinePassUrl,
 }: HandleLineLoginProps) => {

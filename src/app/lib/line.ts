@@ -11,6 +11,7 @@ type Body = {
   body: BodyInit | null | undefined;
 };
 export const postLineLogin = async ({ body }: Body) => {
+  // body: {url: window.location.origin}/${locale}/linepasscode}
   try {
     const formatUrl = baseURL + "/line/login";
     const fetchConfig = {
@@ -27,6 +28,7 @@ export const postLineLogin = async ({ body }: Body) => {
 };
 
 export const postUserLogin = async ({ body }: Body) => {
+  // body: {one_time_pass: 從 query params 取得}
   try {
     const formatUrl = baseURL + "/user/login";
     const fetchConfig = {
