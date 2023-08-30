@@ -35,6 +35,8 @@ export function middleware(request: NextRequest) {
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
 
+    // if (pathname.includes("auth")) return;
+
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
     return NextResponse.redirect(

@@ -5,6 +5,7 @@ import ReduxProvider from "../store/ReduxProvider";
 import StyledComponentsRegistry from "../../../registry";
 import CustomThemeProvider from "../theme/CustomThemeProvider";
 import { Locale } from "../type/locale";
+import NextAuthProvider from "../component/NextauthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +28,11 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
     <html lang={params.locale ?? "en"} suppressHydrationWarning>
       <body className={inter.className}>
         <ReduxProvider>
-          <StyledComponentsRegistry>
-            <CustomThemeProvider>{children}</CustomThemeProvider>
-          </StyledComponentsRegistry>
+          <NextAuthProvider>
+            <StyledComponentsRegistry>
+              <CustomThemeProvider>{children}</CustomThemeProvider>
+            </StyledComponentsRegistry>
+          </NextAuthProvider>
         </ReduxProvider>
       </body>
     </html>

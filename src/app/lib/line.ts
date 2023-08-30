@@ -10,7 +10,6 @@ import { baseURL } from "../utils/baseUrl";
 type Body = {
   body: BodyInit | null | undefined;
 };
-type Data = BodyInit | null | undefined;
 export const postLineLogin = async ({ body }: Body) => {
   try {
     const formatUrl = baseURL + "/line/login";

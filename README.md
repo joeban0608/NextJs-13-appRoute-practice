@@ -31,9 +31,12 @@ npm run pro-main
 - redux/toolkit
 - redux-persist
 - next-themes
+- next-auth
+- sass
 ---
 
 目前使用 css 框架
+- sass
 - styleComponent
 - tailwindcss
 
