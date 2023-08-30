@@ -1,15 +1,19 @@
 import Counter from "@/app/component/Counter";
 import Link from "next/link";
-
+import styles from "./styles.module.scss";
+import GlobalStyles from "@/app/theme/GlobalStyles";
 type Page = {
   params: { slug: string };
 };
-const PostSlugPage = ({ params }: Page) => {
+const PostSlugPage = async ({ params }: Page) => {
   return (
-    <main>
+    <main className={styles.main}>
+      <GlobalStyles />
       <h1>Here is post {params.slug} page</h1>
       <Counter />
-      <Link href="/">back to home</Link>
+      <Link className={styles.link} href="/">
+        back to home
+      </Link>
     </main>
   );
 };
