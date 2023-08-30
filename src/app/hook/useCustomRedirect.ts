@@ -13,9 +13,15 @@ const useCustomRedirect = () => {
     if (!window) return "https://yuenchi.ai";
     return `${window.location.origin}/${locale}`;
   };
+  const handleRedirectProfile = () => {
+    if (!window) return "https://yuenchi.ai";
+    return `${window.location.origin}/${locale}/profile`;
+  };
   return {
     handleRedirectLinePassUrl,
     handleRedirectHomeUrl,
+    handleRedirectProfile,
+    locale,
   };
 };
 

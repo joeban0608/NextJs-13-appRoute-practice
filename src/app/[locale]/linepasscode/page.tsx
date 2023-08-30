@@ -15,9 +15,8 @@ const LinePassCode = () => {
   // const [userInfo, setUserInfo] = useState<UserInfoType | null>(null);
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.persistStores);
-  console.log("oneTimePassToken", oneTimePassToken);
 
-  const { handleRedirectHomeUrl } = useCustomRedirect();
+  const { handleRedirectHomeUrl, handleRedirectProfile } = useCustomRedirect();
   const handleUserLogin = async () => {
     try {
       const body = JSON.stringify({ one_time_pass: oneTimePassToken });
@@ -47,7 +46,7 @@ const LinePassCode = () => {
       )
         return;
       dispatch(setUserInfo(userInfoRes.data));
-      window.location.href = handleRedirectHomeUrl();
+      window.location.href = handleRedirectProfile();
     } catch (err) {
       dispatch(setUserInfo(null));
       window.location.href = handleRedirectHomeUrl();
