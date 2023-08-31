@@ -4,6 +4,11 @@ import Counter from "../component/Counter";
 import ThemeSelector from "../theme/ThemeSelector";
 import { getDictionary } from "../utils/getDictionaries";
 import { Locale } from "../type/locale";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../lib/auth";
+import { UserInfoType } from "../type/user";
+import { ServerSession } from "../type/next-auth";
+import LogoutButton from "../component/LogoutButton";
 
 type HomeProps = {
   params: {
@@ -14,6 +19,7 @@ export default async function Home({ params }: HomeProps) {
   const locale = params.locale ?? "en";
   const dict = await getDictionary(locale); // en
   const { YUENCHI } = dict;
+  const session = (await getServerSession(authOptions)) as ServerSession;
 
   return (
     <main className="">
@@ -25,9 +31,12 @@ export default async function Home({ params }: HomeProps) {
       </Link>
       <div className="link-block flex flex-col gap-[20px]">
         <ThemeSelector />
-        <Link href={`/${locale}/login`} className="button text-center">
-          login
-        </Link>
+        {!session && (
+          <Link href={`/${locale}/login`} className="button text-center">
+            login
+          </Link>
+        )}
+        {session && <LogoutButton />}
       </div>
     </main>
   );

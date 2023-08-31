@@ -1,4 +1,5 @@
 "use client";
+import LogoutButton from "@/app/component/LogoutButton";
 import { useAppDispatch, useAppSelector } from "@/app/hook/hooks";
 import useCustomRedirect from "@/app/hook/useCustomRedirect";
 import { useHandleLogout } from "@/app/hook/useHandleLogout";
@@ -66,12 +67,7 @@ const ProfileStyle = styled.main`
   }
 `;
 const Profile = () => {
-  const dispatch = useAppDispatch();
-  const { handleRedirectHomeUrl } = useCustomRedirect();
-  const { handleLogout } = useHandleLogout();
   const { userInfo } = useAppSelector((state) => state.user);
-  const data = useSession();
-
   const { isMounted } = useMount();
   if (!isMounted) return null;
   console.log("userInfo", userInfo);
@@ -103,14 +99,10 @@ const Profile = () => {
         </p>
       </div> */}
       </div>
-      <Link
-        className="button"
-        href={handleRedirectHomeUrl()}
-        style={{ textAlign: "center" }}
-        onClick={handleLogout}
-      >
-        Logout
+      <Link href="/" className="button text-center">
+        back to YUENCHI
       </Link>
+      <LogoutButton />
     </ProfileStyle>
   );
 };
