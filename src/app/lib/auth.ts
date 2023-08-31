@@ -18,20 +18,18 @@ export const authOptions: NextAuthOptions = {
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {},
       async authorize(credentials, req) {
+        // console.log("req body", req.body~);
         if (req.body) {
           return req.body as any;
         } else {
-          return {
-            session: {
-              user: null,
-            },
-          };
+          return null;
         }
       },
     }),
   ],
   callbacks: {
     async session({ session, token }) {
+      // console.log("token", token);
       session.user = token.user as UserInfoType;
       return session;
     },
