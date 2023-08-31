@@ -8,6 +8,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth";
 import { ServerSession } from "../type/next-auth";
 import LogoutButton from "../component/LogoutButton";
+import LoginButton from "../component/LoginButton";
 
 type HomeProps = {
   params: {
@@ -30,11 +31,7 @@ export default async function Home({ params }: HomeProps) {
       </Link>
       <div className="link-block flex flex-col gap-[20px]">
         <ThemeSelector />
-        {!session && (
-          <Link href={`/${locale}/login`} className="button text-center">
-            login
-          </Link>
-        )}
+        {!session && <LoginButton />}
         {session && <LogoutButton />}
       </div>
     </main>

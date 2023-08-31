@@ -1,8 +1,8 @@
 "use client";
-import { handleLineLogin } from "@/app/[locale]/login/handleLogin";
 import useCustomRedirect from "@/app/hook/useCustomRedirect";
 import { signIn } from "next-auth/react";
 import React from "react";
+import { handleLineLogin } from "./handleLogin";
 
 const LoginButton = () => {
   const { handleRedirectLinePassUrl } = useCustomRedirect();
