@@ -6,7 +6,6 @@ import { useMount } from "@/app/hook/useMount";
 import GlobalStyles from "@/app/theme/GlobalStyles";
 import { DynamicString } from "@/app/type/dynamic";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { styled } from "styled-components";
 
