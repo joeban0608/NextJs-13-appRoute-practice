@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { UserInfoRes, UserInfoType, UserLoginRes } from "@/app/type/user";
 import { getUserInfo, postUserLogin } from "@/app/lib/line";
 import { useAppDispatch, useAppSelector } from "@/app/hook/hooks";
@@ -8,8 +8,10 @@ import { setToken } from "@/app/store/features/persistStoresSlice";
 import { isEmptyObj } from "@/app/utils/isEmptyObj";
 import { setUserInfo } from "@/app/store/features/userSlice";
 import useCustomRedirect from "@/app/hook/useCustomRedirect";
+import { signIn } from "next-auth/react";
 
 const LinePassCode = () => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const oneTimePassToken = searchParams.get("oneTimePass");
   // const [userInfo, setUserInfo] = useState<UserInfoType | null>(null);
@@ -46,10 +48,15 @@ const LinePassCode = () => {
       )
         return;
       dispatch(setUserInfo(userInfoRes.data));
-      // window.location.href = handleRedirectProfile();
+      signIn("credentials", {
+        redirect: true,
+        ...userInfoRes.data,
+        callbackUrl: handleRedirectProfile(),
+      });
+      // router.push(handleRedirectProfile());
     } catch (err) {
       dispatch(setUserInfo(null));
-      window.location.href = handleRedirectHomeUrl();
+      router.push(handleRedirectHomeUrl());
       console.log("handleGetUserInfo error:", err);
     }
   };
@@ -63,7 +70,6 @@ const LinePassCode = () => {
     if (!token) return;
     handleGetUserInfo();
   }, [token]);
-
   return <div>linepasscode</div>;
 };
 

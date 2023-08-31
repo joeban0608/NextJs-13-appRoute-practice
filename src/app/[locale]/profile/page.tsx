@@ -6,6 +6,7 @@ import { useMount } from "@/app/hook/useMount";
 import { setToken } from "@/app/store/features/persistStoresSlice";
 import { setUserInfo } from "@/app/store/features/userSlice";
 import GlobalStyles from "@/app/theme/GlobalStyles";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -69,6 +70,7 @@ const Profile = () => {
   const { handleRedirectHomeUrl } = useCustomRedirect();
   const { handleLogout } = useHandleLogout();
   const { userInfo } = useAppSelector((state) => state.user);
+  const data = useSession();
 
   const { isMounted } = useMount();
   if (!isMounted) return null;

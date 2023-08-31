@@ -16,7 +16,7 @@ type LoginProps = {
 export default function Login({ params }: LoginProps) {
   const { handleRedirectLinePassUrl, locale } = useCustomRedirect();
   // console.log("signIn", signIn());
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const router = useRouter();
   // useEffect(() => {
   //   if (!session) return;
@@ -27,33 +27,28 @@ export default function Login({ params }: LoginProps) {
     <main className="gap-[10px] flex-column">
       <GlobalStyles />
       <div className="button-block flex flex-col gap-[12px]">
-        {!session && (
-          <button
-            className="button mt-[10px]"
-            style={{ background: "var(--line)" }}
-            onClick={() => {
-              handleLineLogin({ handleRedirectLinePassUrl });
-              // signIn("line");
-            }}
-          >
-            Line Login
-          </button>
-        )}
+        <button
+          className="button mt-[10px]"
+          style={{ background: "var(--line)" }}
+          onClick={() => {
+            handleLineLogin({ handleRedirectLinePassUrl });
+            // signIn("line");
+          }}
+        >
+          Line Login
+        </button>
         <Link href="/" className="button text-center">
           back to YUENCHI
         </Link>
-        {session && (
-          <button
-            className="button"
-            style={{ background: "var(--line)" }}
-            onClick={() => {
-              // handleLineLogin({ handleRedirectLinePassUrl });
-              signOut();
-            }}
-          >
-            Line sign out
-          </button>
-        )}
+        {/* <button
+          className="button"
+          style={{ background: "var(--line)" }}
+          onClick={() => {
+            // signOut();
+          }}
+        >
+          Line sign out
+        </button> */}
       </div>
     </main>
   );
