@@ -3,19 +3,14 @@ import GlobalStyles from "../theme/GlobalStyles";
 import Counter from "../component/Counter";
 import ThemeSelector from "../theme/ThemeSelector";
 import { getDictionary } from "../utils/getDictionaries";
-import { Locale } from "../type/locale";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth";
 import { ServerSession } from "../type/next-auth";
 import LogoutButton from "../component/LogoutButton";
 import LoginButton from "../component/LoginButton";
+import { PageLocale } from "../type/locale";
 
-type HomeProps = {
-  params: {
-    locale?: Locale;
-  };
-};
-export default async function Home({ params }: HomeProps) {
+export default async function Home({ params }: PageLocale) {
   const locale = params.locale ?? "en";
   const dict = await getDictionary(locale); // en
   const { YUENCHI } = dict;

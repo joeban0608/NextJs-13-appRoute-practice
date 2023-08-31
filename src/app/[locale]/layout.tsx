@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 import ReduxProvider from "../store/ReduxProvider";
 import StyledComponentsRegistry from "../../../registry";
 import CustomThemeProvider from "../theme/CustomThemeProvider";
-import { Locale } from "../type/locale";
 import NextAuthProvider from "../component/NextauthProvider";
+import { Locale } from "../../../i18n.config";
 
 const inter = Inter({ subsets: ["latin"] });
 

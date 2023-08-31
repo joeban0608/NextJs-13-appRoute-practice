@@ -1,4 +1,5 @@
-export type Locale = "en" | "ja";
+import { Locale } from "../../../i18n.config";
+
 export type PageLocale = {
   params: {
     locale?: Locale;
