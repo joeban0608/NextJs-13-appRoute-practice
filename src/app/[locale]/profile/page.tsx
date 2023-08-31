@@ -67,6 +67,9 @@ const ProfileStyle = styled.main`
   }
 `;
 const Profile = () => {
+  const dispatch = useAppDispatch();
+  const { handleRedirectHomeUrl } = useCustomRedirect();
+  const { handleLogout } = useHandleLogout();
   const { userInfo } = useAppSelector((state) => state.user);
   const { isMounted } = useMount();
   if (!isMounted) return null;

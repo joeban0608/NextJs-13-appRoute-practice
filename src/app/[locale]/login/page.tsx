@@ -1,47 +1,25 @@
-"use client";
-import useCustomRedirect from "@/app/hook/useCustomRedirect";
 import GlobalStyles from "@/app/theme/GlobalStyles";
 import { Locale } from "@/app/type/locale";
-import Link from "next/link";
-import { handleLineLogin } from "./handleLogin";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import LoginButton from "@/app/component/LoginButton";
+import { getDictionary } from "@/app/utils/getDictionaries";
+import BackToHome from "@/app/component/BaclToHome";
 
 type LoginProps = {
   params: {
     locale?: Locale;
   };
 };
-export default function Login({ params }: LoginProps) {
-  const { handleRedirectLinePassUrl } = useCustomRedirect();
+export default async function Login({ params }: LoginProps) {
+  const locale = params.locale ?? "en";
+  const dict = await getDictionary(locale); // en
+  const { YUENCHI } = dict;
 
   return (
     <main className="gap-[10px] flex-column">
       <GlobalStyles />
       <div className="button-block flex flex-col gap-[12px]">
-        <button
-          className="button mt-[10px]"
-          style={{ background: "var(--line)" }}
-          onClick={() => {
-            handleLineLogin({ handleRedirectLinePassUrl });
-            // signIn("line");
-          }}
-        >
-          Line Login
-        </button>
-        <Link href="/" className="button text-center">
-          back to YUENCHI
-        </Link>
-        {/* <button
-          className="button"
-          style={{ background: "var(--line)" }}
-          onClick={() => {
-            // signOut();
-          }}
-        >
-          Line sign out
-        </button> */}
+        <LoginButton />
+        <BackToHome homeName={YUENCHI} />
       </div>
     </main>
   );

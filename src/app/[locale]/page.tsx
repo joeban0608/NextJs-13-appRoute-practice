@@ -6,7 +6,6 @@ import { getDictionary } from "../utils/getDictionaries";
 import { Locale } from "../type/locale";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth";
-import { UserInfoType } from "../type/user";
 import { ServerSession } from "../type/next-auth";
 import LogoutButton from "../component/LogoutButton";
 
