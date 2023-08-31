@@ -14,14 +14,7 @@ type LoginProps = {
   };
 };
 export default function Login({ params }: LoginProps) {
-  const { handleRedirectLinePassUrl, locale } = useCustomRedirect();
-  // console.log("signIn", signIn());
-  // const { data: session } = useSession();
-  const router = useRouter();
-  // useEffect(() => {
-  //   if (!session) return;
-  //   router.push(`/${locale}/profile`);
-  // }, [locale, router, session]);
+  const { handleRedirectLinePassUrl } = useCustomRedirect();
 
   return (
     <main className="gap-[10px] flex-column">

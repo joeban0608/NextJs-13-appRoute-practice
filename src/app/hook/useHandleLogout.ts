@@ -5,12 +5,11 @@ import { useAppDispatch } from "./hooks";
 import useCustomRedirect from "./useCustomRedirect";
 
 export const useHandleLogout = () => {
-  const { handleRedirectHomeUrl } = useCustomRedirect();
   const dispatch = useAppDispatch();
   const handleLogout = () => {
     dispatch(setUserInfo(null));
     dispatch(setToken(""));
-    signOut({ callbackUrl: handleRedirectHomeUrl() });
+    signOut({ callbackUrl: "/" });
   };
   return {
     handleLogout,

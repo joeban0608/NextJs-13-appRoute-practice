@@ -18,7 +18,6 @@ const LinePassCode = () => {
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.persistStores);
 
-  const { handleRedirectHomeUrl, handleRedirectProfile } = useCustomRedirect();
   const handleUserLogin = async () => {
     try {
       const body = JSON.stringify({ one_time_pass: oneTimePassToken });
@@ -51,12 +50,11 @@ const LinePassCode = () => {
       signIn("credentials", {
         redirect: true,
         ...userInfoRes.data,
-        callbackUrl: handleRedirectProfile(),
+        callbackUrl: "/profile",
       });
-      // router.push(handleRedirectProfile());
     } catch (err) {
       dispatch(setUserInfo(null));
-      router.push(handleRedirectHomeUrl());
+      router.push("/");
       console.log("handleGetUserInfo error:", err);
     }
   };
