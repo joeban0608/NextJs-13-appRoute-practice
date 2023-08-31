@@ -1,5 +1,5 @@
 "use client";
-import { useHandleLogout } from "@/app/hook/useHandleLogout";
+import { useHandleLogout } from "@/app/component/LogoutButton/useHandleLogout";
 import Link from "next/link";
 import React from "react";
 

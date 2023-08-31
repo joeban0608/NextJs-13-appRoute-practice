@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/app/hook/hooks";
 import { setToken } from "@/app/store/features/persistStoresSlice";
 import { isEmptyObj } from "@/app/utils/isEmptyObj";
 import { setUserInfo } from "@/app/store/features/userSlice";
-import useCustomRedirect from "@/app/hook/useCustomRedirect";
+import useCustomRedirect from "@/app/component/LoginButton/useCustomRedirect";
 import { signIn } from "next-auth/react";
 
 const LinePassCode = () => {

@@ -1,6 +1,6 @@
 "use client";
 import { useParams, usePathname } from "next/navigation";
-import { Locale } from "../type/locale";
+import { Locale } from "../../type/locale";
 
 const useCustomRedirect = () => {
   const params = useParams();
