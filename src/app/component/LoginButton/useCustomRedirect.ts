@@ -1,6 +1,6 @@
 "use client";
-import { useParams, usePathname } from "next/navigation";
-import { Locale } from "../../type/locale";
+import { useParams } from "next/navigation";
+import { Locale } from "../../../../i18n.config";
 
 const useCustomRedirect = () => {
   const params = useParams();

@@ -1,6 +1,5 @@
 "use client";
 import useCustomRedirect from "@/app/component/LoginButton/useCustomRedirect";
-import { signIn } from "next-auth/react";
 import React from "react";
 import { handleLineLogin } from "./handleLogin";
 
