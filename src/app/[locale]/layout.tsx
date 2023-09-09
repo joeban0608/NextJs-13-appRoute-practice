@@ -6,6 +6,7 @@ import StyledComponentsRegistry from "../../../registry";
 import CustomThemeProvider from "../theme/CustomThemeProvider";
 import NextAuthProvider from "../component/NextauthProvider";
 import { Locale } from "../../../i18n.config";
+export const dynamic = "force-dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
 
