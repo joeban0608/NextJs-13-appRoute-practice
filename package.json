@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev-main": "cp .env.development .env.local && next dev",
-    "pro-main": "cp .env.production .env.local && next pro",
+    "pro-main": "cp .env.production .env.local && next build && next start",
     "dev-turbo": "cp .env.development .env.local && next dev --turbo",
     "pro-turbo": "cp .env.production .env.local && next dev --turbo",
     "build": "next build",
