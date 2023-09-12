@@ -1,5 +1,4 @@
 import Link from "next/link";
-import GlobalStyles from "../theme/GlobalStyles";
 import Counter from "../component/Counter";
 import ThemeSelector from "../theme/ThemeSelector";
 import { getDictionary } from "../utils/getDictionaries";
@@ -18,7 +17,6 @@ export default async function Home({ params }: PageLocale) {
 
   return (
     <main className="">
-      <GlobalStyles />
       <h1> hello world, there is {YUENCHI}</h1>
       <Counter />
       <Link href="post/aaa" style={{ color: "var(--primary)" }}>

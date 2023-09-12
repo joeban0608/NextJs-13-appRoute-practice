@@ -3,7 +3,6 @@ import BackToHome from "@/app/component/BaclToHome";
 import LogoutButton from "@/app/component/LogoutButton";
 import { useAppSelector } from "@/app/hook/hooks";
 import { useMount } from "@/app/hook/useMount";
-import GlobalStyles from "@/app/theme/GlobalStyles";
 import { DynamicString } from "@/app/type/dynamic";
 import Image from "next/image";
 import React from "react";
@@ -70,7 +69,6 @@ const ProfileContent = ({ dict }: { dict: DynamicString }) => {
 
   return (
     <ProfileStyle>
-      <GlobalStyles />
       <Image
         className="avatar"
         src={userInfo?.avatar || "/profileImg.png"}
