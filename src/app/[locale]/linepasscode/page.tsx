@@ -8,6 +8,7 @@ import { setToken } from "@/app/store/features/persistStoresSlice";
 import { isEmptyObj } from "@/app/utils/isEmptyObj";
 import { setUserInfo } from "@/app/store/features/userSlice";
 import { signIn } from "next-auth/react";
+import { redirectHomeUrl } from "@/app/utils/redirect";
 
 const LinePassCode = () => {
   const router = useRouter();
@@ -47,10 +48,12 @@ const LinePassCode = () => {
         return;
       dispatch(setUserInfo(userInfoRes.data));
       signIn("credentials", {
-        redirect: true,
+        redirect: false,
         ...userInfoRes.data,
-        callbackUrl: "/profile",
+        // callbackUrl: "/profile",
       });
+      router.push("/profile");
+      // window.location.href = `${redirectHomeUrl}/profile`;
     } catch (err) {
       dispatch(setUserInfo(null));
       router.push("/");
