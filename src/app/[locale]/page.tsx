@@ -17,7 +17,7 @@ export default async function Home({ params }: PageLocale) {
 
   return (
     <main className="">
-      <h1> hello world, there is {YUENCHI}</h1>
+      <h1> hello world, there is {YUENCHI} sec app</h1>
       <Counter />
       <Link href="post/aaa" style={{ color: "var(--primary)" }}>
         link to post aaa
